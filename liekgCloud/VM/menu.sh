@@ -1,0 +1,146 @@
+#!/bin/bash
+# ===========================================================
+# SEMA UI x OBSIDIAN - DEV ENVIRONMENT MANAGER (v26.0)
+# Style: Cyber-Grid / Glass-Pill / Master Node Edition
+# ===========================================================
+
+# --- 0. PRE-INITIALIZATION ---
+hostnamectl set-hostname Codinghub 2>/dev/null
+
+# --- COLORS & STYLES ---
+B_BLUE='\033[1;38;5;33m'
+B_CYAN='\033[1;38;5;51m'
+B_PURPLE='\033[1;38;5;141m'
+B_GREEN='\033[1;38;5;82m'
+B_RED='\033[1;38;5;196m'
+GOLD='\033[38;5;220m'
+W='\033[1;38;5;255m'
+G='\033[0;38;5;244m'
+BG_SHADE='\033[48;5;236m' 
+NC='\033[0m'
+
+# --- UTILS ---
+pause() { echo; echo -ne "  ${G}➜${NC} ${W}Press Enter to return...${NC}"; read _; }
+
+# --- DATA AGGREGATOR ---
+get_metrics() {
+    CPU=$(top -bn1 | grep "Cpu(s)" | awk '{printf "%.0f", $2+$4}')
+    RAM=$(free | grep Mem | awk '{printf "%.0f", $3*100/$2}')
+    UPT=$(uptime -p | sed 's/up //')
+    DISK=$(df -h / | awk 'NR==2 {print $5}')
+    CURRENT_HOST=$(hostname)
+    
+    # KVM & Doko Status
+    KVM_STATUS=$([ -e /dev/kvm ] && echo -e "${B_GREEN}ON${NC}" || echo -e "${B_RED}OFF${NC}")
+    if command -v docker &> /dev/null; then
+        DOKO_RUNNING=$(docker ps -q | wc -l)
+        DOKO_STATUS="${B_GREEN}${DOKO_RUNNING}${NC}"
+    else
+        DOKO_STATUS="${B_RED}N/A${NC}"
+    fi
+}
+
+# --- DOKO GRID RENDERER ---
+render_doko_grid() {
+    if ! command -v docker &> /dev/null; then return; fi
+    echo -e "  ${B_CYAN}  ACTIVE DOKO NODES${NC}"
+    echo -e "  ${G}┌──────────┬──────────┬──────────────┬──────────────┬────────────┐${NC}"
+    echo -e "  ${G}│${NC} ${W}NAME${NC}      ${G}│${NC} ${W}ID${NC}        ${G}│${NC} ${W}LOCAL IP${NC}     ${G}│${NC} ${W}HOST:CONT${NC}    ${G}│${NC} ${W}STATUS${NC}     ${G}│${NC}"
+    echo -e "  ${G}├──────────┼──────────┼──────────────┼──────────────┼────────────┤${NC}"
+    docker ps -a --format "{{.Names}}|{{.ID}}|{{.Status}}|{{.Ports}}" | head -n 3 | while read -r line; do
+        IFS='|' read -r name id status ports <<< "$line"
+        ip=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "$name" 2>/dev/null || echo "0.0.0.0")
+        mapping=$(echo "$ports" | grep -oP '\d+->\d+' | head -n1 | sed 's/->/:/')
+        p_stat=$([[ "$status" == *"Up"* ]] && echo -e "${B_GREEN}ON${NC}" || echo -e "${B_RED}OFF${NC}")
+        printf "  ${G}│${NC} %-8.8s ${G}│${NC} %-8.8s ${G}│${NC} %-12.12s ${G}│${NC} %-12.12s ${G}│${NC} %-10b ${G}│${NC}\n" "$name" "$id" "$ip" "${mapping:- ---}" "$p_stat"
+    done
+    echo -e "  ${G}└──────────┴──────────┴──────────────┴──────────────┴────────────┘${NC}"
+}
+
+# --- MAIN RENDERER ---
+render_ui() {
+    clear
+    get_metrics
+    # Top Glass-Pill Nubar
+    echo -e " ${B_BLUE}${NC}${BG_SHADE}${W}   HOST: $CURRENT_HOST ${NC}${B_BLUE}${NC}  ${B_PURPLE}${NC}${BG_SHADE}${W}   $UPT ${NC}${B_PURPLE}${NC}  ${B_GREEN}${NC}${BG_SHADE}${W} ⚙ KVM: $KVM_STATUS ${NC}${B_GREEN}${NC}  ${GOLD}${NC}${BG_SHADE}${W}  DOKO: $DOKO_STATUS ${NC}${GOLD}${NC}"
+    echo -e ""
+
+    # Obsidian Custom Banner
+    echo -e "${B_CYAN}██╗     ██╗███████╗    ██╗  ██╗ ██████╗      ██████╗██╗      ██████╗ ██╗   ██╗██████╗ ${NC}"
+    echo -e "${B_CYAN}██║     ██║██╔════╝    ██║ ██╔╝██╔════╝     ██╔════╝██║     ██╔═══██╗██║   ██║██╔══██╗${NC}"
+    echo -e "${B_PURPLE}██║     ██║█████╗      █████╔╝ ██║  ███╗    ██║     ██║     ██║   ██║██║   ██║██║  ██║${NC}"
+    echo -e "${B_PURPLE}██║     ██║██╔══╝      ██╔═██╗ ██║   ██║    ██║     ██║     ██║   ██║██║   ██║██║  ██║${NC}"
+    echo -e "${GOLD}███████╗██║███████╗    ██║  ██╗╚██████╔╝    ╚██████╗███████╗╚██████╔╝╚██████╔╝██████╔╝${NC}"
+    echo -e "${GOLD}╚══════╝╚═╝╚══════╝    ╚═╝  ╚═╝ ╚═════╝      ╚═════╝╚══════╝ ╚═════╝  ╚═════╝ ╚═════╝ ${NC}"
+    
+    echo -e "  ${G}───────────────────────────────────────────────────────────────────────────${NC}"
+    render_doko_grid
+    
+    # System Metrics Line
+    printf "\n  ${W}System Vitality:${NC} ${G}CPU:${NC} ${B_CYAN}%-4s${NC} ${G}RAM:${NC} ${B_PURPLE}%-4s${NC} ${G}Disk:${NC} ${B_GREEN}%-4s${NC}\n" "$CPU%" "$RAM%" "$DISK"
+    echo -e ""
+
+    # Action Matrix
+    echo -e "  ${B_CYAN}  VIRTUALIZATION & NODES${NC}"
+    echo -e "  ${G}├─ ${W}[1]${NC} RDX/IDX             ${G}├─ ${W}[4]${NC} soon"
+    echo -e "  ${G}├─ ${W}[2]${NC} VM-1 (KVM Mode)     ${G}├─ ${W}[5]${NC} LXC/LXD Deploy"
+    echo -e "  ${G}└─ ${W}[3]${NC} VM-2 (No-KVM)       ${G}└─ ${W}[6]${NC} Docker Deploy"
+    echo -e ""
+    
+    echo -e "  ${B_PURPLE}  SESSION CONTROL${NC}"
+    echo -e "  ${G}└─ ${B_RED}${NC}${BG_SHADE}${W} [0] TERMINATE SESSION ${NC}${B_RED}${NC}"
+    
+    echo -e "\n  ${G}───────────────────────────────────────────────────────────────────────────${NC}"
+    echo -ne "  ${B_CYAN}➜${NC} ${W}Master Action${NC} ${G}(0-6):${NC} "
+}
+
+# --- MAIN LOOP ---
+while true; do
+    render_ui
+    read -r opt
+    case $opt in
+        1) 
+           echo -e "\n  ${B_CYAN}🔧 Initializing RDX/IDX Environment...${NC}"
+           mkdir -p "$HOME/vm/.idx" && cd "$HOME/vm/.idx" || return
+           cat <<EOF > dev.nix
+{ pkgs, ... }: {
+  channel = "stable-24.05";
+  packages = with pkgs; [
+    unzip
+    openssh
+    git
+    qemu_kvm
+    btop
+    sudo
+    cdrkit
+    cloud-utils
+    qemu
+  ];
+  env = {
+    EDITOR = "nano";
+  };
+  idx = {
+    extensions = [
+      "Dart-Code.flutter"
+      "Dart-Code.dart-code"
+    ];
+    workspace = {
+      onCreate = { };
+      onStart = { };
+    };
+    previews = {
+      enable = false;
+    };
+  };
+}
+EOF
+           echo -e "  ${B_GREEN}✅ dev.nix deployment successful.${NC}"; pause ;;
+        2) bash <(curl -s https://raw.githubusercontent.com/lie-kg1/hub/refs/heads/main/liekgCloud/VM/vm-run1.sh); pause ;;
+        3) bash <(curl -s https://raw.githubusercontent.com/lie-kg1/hub/refs/heads/main/liekgCloud/VM/os.sh)
+           bash <(curl -s https://raw.githubusercontent.com/lie-kg1/hub/refs/heads/main/liekgCloud/VM/vm-run2.sh); pause ;;
+        5) bash <(curl -s https://raw.githubusercontent.com/lie-kg1/ptero/refs/heads/main/ptero/vps/lxc.sh); pause ;;
+        6) bash <(curl -s https://raw.githubusercontent.com/lie-kg1/hub/refs/heads/main/liekgCloud/VM/docker/manage.sh); pause ;;
+        0) echo -e "\n  ${B_RED}DISCONNECTED.${NC} Goodbye, lie_kg."; exit 0 ;;
+        *) echo -e "  ${B_RED}Error: Command Invalid.${NC}"; sleep 0.7 ;;
+    esac
+done
