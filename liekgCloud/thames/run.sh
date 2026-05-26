@@ -85,7 +85,7 @@ while true; do
                         if [ "$installed" = false ]; then
                             echo -e "${CYAN}Installing...${RESET}"
                             rm -f /etc/apt/keyrings/nodesource.gpg 2>/dev/null
-                            yes | bash <(curl -s https://raw.githubusercontent.com/lie-kg1/hub/refs/heads/main/liekghub/thames/install.sh)
+                            yes | bash <(curl -s https://raw.githubusercontent.com/lie-kg1/hub/refs/heads/main/liekgCloud/thames/install.sh)
                         else
                             yes | blueprint -rerun-install
                         fi
