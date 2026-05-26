@@ -132,7 +132,7 @@ while true; do
             draw_box
             echo ""
             echo -e "${CYAN}Launching Theme...${RESET}"
-            bash <(curl -s https://raw.githubusercontent.com/lie-kg1/hub/refs/heads/main/liekghub/thames/Theme/th.sh)
+            bash <(curl -s https://raw.githubusercontent.com/lie-kg1/hub/refs/heads/main/liekgCloud/thames/Theme/th.sh)
             pause
             ;;
 
@@ -141,7 +141,7 @@ while true; do
             draw_box
             echo ""
             echo -e "${CYAN}Launching Extensions...${RESET}"
-            bash <(curl -s https://raw.githubusercontent.com/lie-kg1/hub/refs/heads/main/liekghub/thames/Extensions/ext.sh)
+            bash <(curl -s https://raw.githubusercontent.com/lie-kg1/hub/refs/heads/main/liekgCloud/thames/Extensions/ext.sh)
             pause
             ;;
 
