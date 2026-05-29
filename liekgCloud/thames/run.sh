@@ -85,7 +85,7 @@ while true; do
                         if [ "$installed" = false ]; then
                             echo -e "${CYAN}Installing...${RESET}"
                             rm -f /etc/apt/keyrings/nodesource.gpg 2>/dev/null
-                            yes | bash <(curl -s https://raw.githubusercontent.com/nobita329/hub/refs/heads/main/Codinghub/thames/install.sh)
+                            yes | bash <(curl -s https://raw.githubusercontent.com/lie-kg1/hub/refs/heads/main/liekgCloud/thames/install.sh)
                         else
                             yes | blueprint -rerun-install
                         fi
@@ -132,7 +132,7 @@ while true; do
             draw_box
             echo ""
             echo -e "${CYAN}Launching Theme...${RESET}"
-            bash <(curl -s https://raw.githubusercontent.com/nobita329/hub/refs/heads/main/Codinghub/thames/Theme/th.sh)
+            bash <(curl -s https://raw.githubusercontent.com/lie-kg1/hub/refs/heads/main/liekgCloud/thames/Theme/th.sh)
             pause
             ;;
 
@@ -141,7 +141,7 @@ while true; do
             draw_box
             echo ""
             echo -e "${CYAN}Launching Extensions...${RESET}"
-            bash <(curl -s https://raw.githubusercontent.com/nobita329/hub/refs/heads/main/Codinghub/thames/Extensions/ext.sh)
+            bash <(curl -s https://raw.githubusercontent.com/lie-kg1/hub/refs/heads/main/liekgCloud/thames/Extensions/ext.sh)
             pause
             ;;
 
