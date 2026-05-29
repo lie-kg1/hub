@@ -45,7 +45,7 @@ install_paymenter() {
     echo "⏳ This may take a few minutes..."
     
     # Run the Paymenter install script
-    bash <(curl -s https://raw.githubusercontent.com/lie-kg1/hub/refs/heads/main/liekghub/panel/paymenter/install.sh)
+    bash <(curl -s https://raw.githubusercontent.com/nobita329/hub/refs/heads/main/Codinghub/panel/paymenter/install.sh)
     
     printf "${GREEN}║                                                              ║\n"
     printf "║${WHITE}          ✅ INSTALLATION PROCESS COMPLETE!              ${GREEN}║\n"

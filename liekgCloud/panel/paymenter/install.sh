@@ -86,7 +86,7 @@ apt purge -y apache2* || true && apt autoremove -y && rm -rf /etc/apache2 /var/w
 # Start installation
 print_header
 systemctl start mariadb
-bash <(curl -s https://github.com/lie-kg1/hub/blob/main/liekghub/panel/paymenter/os.sh)
+bash <(curl -s https://github.com/nobita329/hub/blob/main/Codinghub/panel/paymenter/os.sh)
 #======================================================================================================================
 mkdir /var/www/paymenter
 cd /var/www/paymenter
