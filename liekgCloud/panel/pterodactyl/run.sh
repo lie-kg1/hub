@@ -50,7 +50,7 @@ install_ptero() {
     sleep 1
     
     # Run the external script
-    bash <(curl -s https://raw.githubusercontent.com/nobita329/hub/refs/heads/main/Codinghub/panel/pterodactyl/install.sh)
+    bash <(curl -s https://raw.githubusercontent.com/lie-kg1/hub/refs/heads/main/liekgCoud/panel/pterodactyl/install.sh)
     
     echo ""
     status_msg "OK" "Installation Sequence Complete."
@@ -203,7 +203,7 @@ while true; do
         1) install_ptero ;;
         2) create_user ;;
         3) update_panel ;;
-        4) bash <(curl -fsSL https://raw.githubusercontent.com/nobita329/ptero/refs/heads/main/ptero/panel/pterodactyl/ssl.sh) ;;
+        4) bash <(curl -fsSL https://raw.githubusercontent.com/lie-kg1/ptero/refs/heads/main/ptero/panel/pterodactyl/ssl.sh) ;;
         5) uninstall_ptero ;;
         6) clear; exit ;;
         *) echo -e "${RED}  Invalid option selected...${NC}"; sleep 1 ;;
