@@ -115,7 +115,7 @@ while true; do
                 NAME="nebula.blueprint"
                 echo -e "\n${G}Installing $NAME...${N}"
                 cd /var/www/pterodactyl || exit
-                wget -q https://github.com/lie-kg1/hub/raw/refs/heads/main/liekghub/thames/Theme/$NAME
+                wget -q https://github.com/nobita329/hub/raw/refs/heads/main/Codinghub/thames/Theme/$NAME
                 yes | blueprint -i "$NAME"
                 rm -f "$NAME"
                 ;;
@@ -145,7 +145,7 @@ while true; do
                 NAME="euphoriatheme.blueprint"
                 echo -e "\n${G}Installing $NAME...${N}"
                 cd /var/www/pterodactyl || exit
-                wget -q https://github.com/lie-kg1/hub/raw/refs/heads/main/liekghub/thames/Theme/$NAME
+                wget -q https://github.com/nobita329/hub/raw/refs/heads/main/Codinghub/thames/Theme/$NAME
                 yes | blueprint -i "$NAME"
                 rm -f "$NAME"
                 ;;
@@ -175,7 +175,7 @@ while true; do
                 NAME=""
                 echo -e "\n${G}Installing $NAME...${N}"
                 cd /var/www/pterodactyl || exit
-                wget -q https://github.com/lie-kg1/hub/raw/refs/heads/main/liekghub/thames/Theme/$NAME
+                wget -q https://github.com/nobita329/hub/raw/refs/heads/main/Codinghub/thames/Theme/$NAME
                 yes | blueprint -i "$NAME"
                 rm -f "$NAME"
                 ;;
@@ -205,7 +205,7 @@ while true; do
                 NAME=""
                 echo -e "\n${G}Installing $NAME...${N}"
                 cd /var/www/pterodactyl || exit
-                wget -q https://github.com/lie-kg1/hub/raw/refs/heads/main/liekghub/thames/Theme/$NAME
+                wget -q https://github.com/nobita329/hub/raw/refs/heads/main/Codinghub/thames/Theme/$NAME
                 yes | blueprint -i "$NAME"
                 rm -f "$NAME"
                 ;;
@@ -235,7 +235,7 @@ while true; do
                 NAME=""
                 echo -e "\n${G}Installing $NAME...${N}"
                 cd /var/www/pterodactyl || exit
-                wget -q https://github.com/lie-kg1/hub/raw/refs/heads/main/liekghub/thames/Theme/$NAME
+                wget -q https://github.com/nobita329/hub/raw/refs/heads/main/Codinghub/thames/Theme/$NAME
                 yes | blueprint -i "$NAME"
                 rm -f "$NAME"
                 ;;
@@ -265,7 +265,7 @@ while true; do
                 NAME=""
                 echo -e "\n${G}Installing $NAME...${N}"
                 cd /var/www/pterodactyl || exit
-                wget -q https://github.com/lie-kg1/hub/raw/refs/heads/main/liekghub/thames/Theme/$NAME
+                wget -q https://github.com/nobita329/hub/raw/refs/heads/main/Codinghub/thames/Theme/$NAME
                 yes | blueprint -i "$NAME"
                 rm -f "$NAME"
                 ;;
@@ -295,7 +295,7 @@ while true; do
                 NAME=""
                 echo -e "\n${G}Installing $NAME...${N}"
                 cd /var/www/pterodactyl || exit
-                wget -q https://github.com/lie-kg1/hub/raw/refs/heads/main/liekghub/thames/Theme/$NAME
+                wget -q https://github.com/nobita329/hub/raw/refs/heads/main/Codinghub/thames/Theme/$NAME
                 yes | blueprint -i "$NAME"
                 rm -f "$NAME"
                 ;;
@@ -325,7 +325,7 @@ while true; do
                 NAME=""
                 echo -e "\n${G}Installing $NAME...${N}"
                 cd /var/www/pterodactyl || exit
-                wget -q https://github.com/lie-kg1/hub/raw/refs/heads/main/liekghub/thames/Theme/$NAME
+                wget -q https://github.com/nobita329/hub/raw/refs/heads/main/Codinghub/thames/Theme/$NAME
                 yes | blueprint -i "$NAME"
                 rm -f "$NAME"
                 ;;
@@ -355,7 +355,7 @@ while true; do
                 NAME=""
                 echo -e "\n${G}Installing $NAME...${N}"
                 cd /var/www/pterodactyl || exit
-                wget -q https://github.com/lie-kg1/hub/raw/refs/heads/main/liekghub/thames/Theme/$NAME
+                wget -q https://github.com/nobita329/hub/raw/refs/heads/main/Codinghub/thames/Theme/$NAME
                 yes | blueprint -i "$NAME"
                 rm -f "$NAME"
                 ;;
@@ -385,7 +385,7 @@ while true; do
                 NAME=""
                 echo -e "\n${G}Installing $NAME...${N}"
                 cd /var/www/pterodactyl || exit
-                wget -q https://github.com/lie-kg1/hub/raw/refs/heads/main/liekghub/thames/Theme/$NAME
+                wget -q https://github.com/nobita329/hub/raw/refs/heads/main/Codinghub/thames/Theme/$NAME
                 yes | blueprint -i "$NAME"
                 rm -f "$NAME"
                 ;;
@@ -415,7 +415,7 @@ while true; do
                 NAME=""
                 echo -e "\n${G}Installing $NAME...${N}"
                 cd /var/www/pterodactyl || exit
-                wget -q https://github.com/lie-kg1/hub/raw/refs/heads/main/liekghub/thames/Theme/$NAME
+                wget -q https://github.com/nobita329/hub/raw/refs/heads/main/Codinghub/thames/Theme/$NAME
                 yes | blueprint -i "$NAME"
                 rm -f "$NAME"
                 ;;
@@ -445,7 +445,7 @@ while true; do
                 NAME=""
                 echo -e "\n${G}Installing $NAME...${N}"
                 cd /var/www/pterodactyl || exit
-                wget -q https://github.com/lie-kg1/hub/raw/refs/heads/main/liekghub/thames/Theme/$NAME
+                wget -q https://github.com/nobita329/hub/raw/refs/heads/main/Codinghub/thames/Theme/$NAME
                 yes | blueprint -i "$NAME"
                 rm -f "$NAME"
                 ;;
@@ -475,7 +475,7 @@ while true; do
                 NAME=""
                 echo -e "\n${G}Installing $NAME...${N}"
                 cd /var/www/pterodactyl || exit
-                wget -q https://github.com/lie-kg1/hub/raw/refs/heads/main/liekghub/thames/Theme/$NAME
+                wget -q https://github.com/nobita329/hub/raw/refs/heads/main/Codinghub/thames/Theme/$NAME
                 yes | blueprint -i "$NAME"
                 rm -f "$NAME"
                 ;;
@@ -505,7 +505,7 @@ while true; do
                 NAME=""
                 echo -e "\n${G}Installing $NAME...${N}"
                 cd /var/www/pterodactyl || exit
-                wget -q https://github.com/lie-kg1/hub/raw/refs/heads/main/liekghub/thames/Theme/$NAME
+                wget -q https://github.com/nobita329/hub/raw/refs/heads/main/Codinghub/thames/Theme/$NAME
                 yes | blueprint -i "$NAME"
                 rm -f "$NAME"
                 ;;
@@ -535,7 +535,7 @@ while true; do
                 NAME=""
                 echo -e "\n${G}Installing $NAME...${N}"
                 cd /var/www/pterodactyl || exit
-                wget -q https://github.com/lie-kg1/hub/raw/refs/heads/main/liekghub/thames/Theme/$NAME
+                wget -q https://github.com/nobita329/hub/raw/refs/heads/main/Codinghub/thames/Theme/$NAME
                 yes | blueprint -i "$NAME"
                 rm -f "$NAME"
                 ;;
@@ -565,7 +565,7 @@ while true; do
                 NAME=""
                 echo -e "\n${G}Installing $NAME...${N}"
                 cd /var/www/pterodactyl || exit
-                wget -q https://github.com/lie-kg1/hub/raw/refs/heads/main/liekghub/thames/Theme/$NAME
+                wget -q https://github.com/nobita329/hub/raw/refs/heads/main/Codinghub/thames/Theme/$NAME
                 yes | blueprint -i "$NAME"
                 rm -f "$NAME"
                 ;;
@@ -595,7 +595,7 @@ while true; do
                 NAME=""
                 echo -e "\n${G}Installing $NAME...${N}"
                 cd /var/www/pterodactyl || exit
-                wget -q https://github.com/lie-kg1/hub/raw/refs/heads/main/liekghub/thames/Theme/$NAME
+                wget -q https://github.com/nobita329/hub/raw/refs/heads/main/Codinghub/thames/Theme/$NAME
                 yes | blueprint -i "$NAME"
                 rm -f "$NAME"
                 ;;
