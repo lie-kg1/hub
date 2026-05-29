@@ -72,7 +72,7 @@ panel_menu() {
                 bash <(curl -s https://raw.githubusercontent.com/lie-kg1/lie-kg-Cloud/refs/heads/main/panel/paymenter/run.sh) 
                 pause ;;
             7)  echo -e "  ${CYAN}➜ Executing Convoy Routine...${NC}"
-                bash <(curl -s https://raw.githubusercontent.com/lie-kg1/hub/refs/heads/main/liekgCoud/panel/convoy/run.sh) 
+                bash <(curl -s https://raw.githubusercontent.com/lie-kg1/hub/refs/heads/main/liekgCloud/panel/convoy/run.sh) 
                 pause ;;
             8)  echo -e "  ${CYAN}➜ Executing [] Routine...${NC}"
                 bash <(curl -s ) 
